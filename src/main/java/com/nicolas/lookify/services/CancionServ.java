@@ -54,5 +54,15 @@ public class CancionServ {
 		cancRepo.deleteById(id);
 
 	}
+	
+	//metodo para mostrar el top 10 de canciones
+	public List<Cancion> topTen(){
+		return cancRepo.findTop10ByOrderByClasificacionDesc();
+	}
+	
+	//metodo para mostrar canciones x nombre de artista
+	public List<Cancion> searchbyArtist(String artista){
+		return cancRepo.findByArtistaContaining(artista);
+	}
 
 }

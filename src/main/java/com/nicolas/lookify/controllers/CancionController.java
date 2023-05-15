@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nicolas.lookify.models.Cancion;
 import com.nicolas.lookify.services.CancionServ;
@@ -66,6 +66,27 @@ public class CancionController {
 		return "show.jsp";
 	}
 	
+	//metodo para mostrar el top ten de canciones
+	/*@GetMapping("/search/topten")
+	public String topten(Model m) {
+		m.addAttribute("topten",serv.findtop10());
+		return "topten.jsp";
+	}*/
+	
+	@GetMapping("/search/topten")
+	public String topTen(Model viewModel) {
+		List<Cancion> topTen = serv.topTen();
+		viewModel.addAttribute("topTen", topTen);
+		return "topten.jsp";
+	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(value="q") String q,Model m) {
+		List<Cancion> busqueda = serv.searchbyArtist(q);
+		m.addAttribute("q",q);
+		m.addAttribute("busqueda",busqueda);
+		return "search.jsp";
+	}
 
 	
 }

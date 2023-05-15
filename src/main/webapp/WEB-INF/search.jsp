@@ -1,27 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!-- c:out ; c:forEach etc. -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- Formatting (dates) -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!-- c:out ; c:forEach etc. --> 
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<!-- Formatting (dates) --> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!-- form:form -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true"%>
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Lookify</title>
-<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/main.css">
-<!-- change to match your file/naming structure -->
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/app.js"></script>
-<!-- change to match your file/naming structure -->
+    <meta charset="ISO-8859-1">
+    <title>TITULO AQUi</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-	<div class="container ">
+<div class="container ">
 
 		<nav class="navbar navbar-expand-lg bg-light">
 			<div class="container-fluid">
@@ -40,7 +37,7 @@
 								Songs</a></li>
 
 					</ul>
-					<form method="get" action="/search" class="d-flex" role="search">
+					<form action="/search" method="get" class="d-flex" role="search">
 						<input class="form-control me-2" type="search" name="q"
 							placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Search
@@ -62,13 +59,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="canc" items="${canc}">
+						<c:forEach var="busqueda" items="${busqueda}">
 							<tr>
 
-								<td><a href='/songs/${canc.id }'><c:out
-											value="${canc.titulo }"></c:out></a></td>
-								<td><c:out value="${canc.clasificacion }"></c:out></td>
-								<td><a href='/delete/${canc.id }'>delete</a></td>
+								<td><a href='/songs/${busqueda.id }'><c:out
+											value="${busqueda.titulo }"></c:out></a></td>
+								<td><c:out value="${busqueda.clasificacion }"></c:out></td>
+								<td><a href='/delete/${busqueda.id }'>delete</a></td>
 
 							</tr>
 						</c:forEach>
@@ -77,5 +74,6 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

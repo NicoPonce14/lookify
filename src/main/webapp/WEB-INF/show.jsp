@@ -26,11 +26,11 @@
 			<c:out value="${cancion.titulo }"></c:out>
 		</h1>
 		<p>
-			Creator:
+			Artista:
 			<c:out value="${cancion.artista }"></c:out>
 		</p>
 		<p>
-			Version:
+			Rating:
 			<c:out value="${cancion.clasificacion }"></c:out>
 		</p>
 
